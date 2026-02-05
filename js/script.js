@@ -33,5 +33,21 @@ function initPhotoSliders() {
 $(document).ready(function () {
   initPhotoSliders();
 });
-  AOS.init();
+  
+const zoomItems = document.querySelectorAll('.zoom-on-scroll, .zoom-on-scroll2');
+
+const observer = new IntersectionObserver((entries, obs) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      obs.unobserve(entry.target); // снимаем наблюдение, чтобы анимация срабатывала один раз
+    }
+  });
+}, {
+  threshold: 0.3
+});
+
+// Начинаем наблюдать за каждым элементом
+zoomItems.forEach(item => observer.observe(item));
+
 });
