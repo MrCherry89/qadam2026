@@ -207,7 +207,6 @@
     .slide{
       height: 800px;
       border-radius: 50px;
-      background: #A9A9A9;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -226,6 +225,15 @@
         font-size: 40px;
         border-radius: 24px;
       }
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50px;
+        @media(max-width: 767px){
+          border-radius: 24px;
+        }
+      }
     }
   }
   
@@ -236,7 +244,7 @@
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 12px;
+    gap: 10px;
   }
   
   /* убираем цифры */
@@ -248,8 +256,8 @@
   /* сама точка */
   .photo-slider .slick-dots li button:before {
     content: '';
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
     background: rgba(255, 255, 255, 0.5);
     border-radius: 50%;
     display: block;
@@ -363,11 +371,19 @@
   background-repeat: no-repeat;
   background-position: center center;
   padding-top: 600px;
-  padding-bottom: 120px;
+  padding-bottom: 100px;
   position: relative;
   z-index: 0;
+  overflow-y: auto;
+  min-height: 100vh;
+  @media(max-width: 1300px){
+    padding-top: 400px;
+  }
   @media(max-width: 1024px){
     padding: 300px 0 60px;
+  }
+  @media(max-width: 767px){
+    padding-top: 220px;
   }
   &:after{
     content: "";
@@ -444,6 +460,121 @@
           }
           b{
             font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}
+
+.header{
+  background: white;
+  padding: 20px 0;
+  transition: .3s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 11;
+  @media(max-width: 1700px){
+    padding: 15px;
+   }
+   @media(max-width: 1200px){
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    border-radius: 0;
+   }
+  .wrapper{
+    padding: 0;
+  }
+
+  .wrapper{
+    @include flex;
+    @include align-center;
+    .logo{
+      @include flex;
+      margin-right: 30px;
+      @media(max-width: 1500px){
+       img{
+        width: 100%;
+       }
+      }
+      @media(max-width: 767px){
+       width: 50px;
+       margin-right: 20px;
+      }
+    }
+    .select-wrap{
+      margin-left: auto;
+      margin-right: 40px;
+      @media(max-width: 1500px){
+        margin-right: 20px;
+       }
+       @media(max-width: 767px){
+        margin-right: 10px;
+       }
+    }
+    .order-call-btn{
+      @include flex;
+      @include align-center;
+      font-size: 18px;
+      font-weight: 700;
+      color: #000;
+      &:hover{
+        color: #00A651;
+      }
+      @media(max-width: 1200px){
+        padding: 10px 16px;
+        font-size: 16px;
+       }
+      @media(max-width: 767px){
+       display: none;
+       }
+    }
+    .main-menu{
+      @include flex;
+      flex-grow: 1;
+      @include justify-between;
+      padding: 0 40px;
+      @media(max-width: 1500px){
+        padding: 0 20px;
+       }
+       @media(max-width: 1024px){
+        position: absolute;
+        border-top: .5px solid white;
+        top: 100%;
+        left: 0;
+        z-index: 100;
+        background: #fff;
+        width: 100%;
+        height: 100vh;
+        padding: 20px;
+        @include dir-col;
+        justify-content: flex-start;
+        transform: scale(0);
+        transition: .3s;
+        &.open{
+          transform: scale(1);
+        }
+       }
+      li{
+        @media(max-width: 1024px){
+          margin-bottom: 20px;
+         }
+        a{
+          font-size: 18px;
+          color: black;
+           @media(max-width: 1400px){
+            font-size: 16px;
+           }
+           @media(max-width: 1024px){
+            border: none;
+            padding: 0px;
+            font-size: 20px;
+           }
+          &:hover{
+            color: #00A651;
           }
         }
       }

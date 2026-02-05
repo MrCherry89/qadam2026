@@ -161,21 +161,21 @@ a {
   }
 
   .select2-selection__arrow {
-    width: 7px !important;
-    height: 5px !important;
+    width: 16px !important;
+    height: 16px !important;
     top: 50% !important;
-    right: 5px !important;
+    right: 0px !important;
     transform: translateY(-50%);
     z-index: 1 !important;
     background-color: transparent;
 
     b {
-      background: url(../img/select-arr.svg) no-repeat center center;
-      width: 7px !important;
-      height: 5px !important;
+      background: url(../img/select-arrow.svg) no-repeat center center;
+      width: 16px !important;
+      height: 16px !important;
       border: none !important;
       transition: 0.2s;
-      margin-top: -3px !important;
+      margin-top: -8px !important;
     }
   }
 
